@@ -1,17 +1,16 @@
-use chrono::NaiveDateTime;
-
 pub struct Chapter {
+    // Unique identifier for the chapter
     pub id: String,
-    pub chap_num: u32,
-    pub name: String,
-    pub volume: Option<u32>,
-    pub group: String,
-    pub time: NaiveDateTime,
-    pub sort_index: u32,
-}
+    pub series_id: String,
+    pub source_id: String,
 
-pub struct ChapterDetails {
-    id: String,
-    manga_id: String,
-    pages: Vec<String>,
+    // Basic information about the chapter
+    pub title: String,
+    pub chapter_number: String,
+    pub volume_number: String,
+    pub group_name: String,
+
+    // Additional metadata about the chapter
+    pub time: u64,
+    pub read: bool,
 }

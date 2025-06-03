@@ -1,8 +1,10 @@
 use super::badge::Badge;
 use bitflags::bitflags;
 use serde::{Deserialize, Serialize};
+use super::lang::Language;
 
 bitflags! {
+    #[derive(Debug, Clone, Serialize, Deserialize)]
     pub struct SourceIntents: u32 {
         const MANGA_CHAPTERS = 1<<0;
         const MANGA_TRACKING = 1<<1;
@@ -11,12 +13,15 @@ bitflags! {
     }
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum ContentRating {
     Everyone,
     Mature,
     Adult,
+    Multi
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SourceInfo {
     // Fields about the extension itself, required for the extension to be recognized and for some features to work
     // Version is read at launch time to check if the extension is up to date
@@ -35,11 +40,11 @@ pub struct SourceInfo {
     pub publisher_url: Option<String>,
 
     // Required field for the extension to work
-    pub base_url: String,
+    pub homepage_url: String,
 
     // Optional fields
     // Metadata about the extension, which is rendered in the extension details page
     pub intents: Option<SourceIntents>,
-    pub language: Option<String>,
+    pub language: Language,
     pub badges: Option<Vec<Badge>>,
 }

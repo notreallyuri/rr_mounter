@@ -1,5 +1,5 @@
 pub mod chapter;
-pub mod manga;
+pub mod series;
 
 pub use chapter::*;
-pub use manga::*;
+pub use series::*;

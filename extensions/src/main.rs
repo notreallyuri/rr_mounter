@@ -1,8 +1,6 @@
-#![allow(unused)]
+#![allow(dead_code)]
 
-mod base;
-mod generate;
-
+mod mangadex;
 
 fn main() {
     println!("Hello, world!");
