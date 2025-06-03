@@ -1,0 +1,3 @@
+[workspace]
+members = ["types", "toolchain", "cli"]
+resolver = "3"
