@@ -4,7 +4,7 @@ pub struct Chapter {
     pub id: String,
     pub chap_num: u32,
     pub name: String,
-    pub volume: u32,
+    pub volume: Option<u32>,
     pub group: String,
     pub time: NaiveDateTime,
     pub sort_index: u32,

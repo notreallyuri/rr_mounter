@@ -41,5 +41,5 @@ pub struct SourceInfo {
     // Metadata about the extension, which is rendered in the extension details page
     pub intents: Option<SourceIntents>,
     pub language: Option<String>,
-    pub tags: Option<Vec<Badge>>,
+    pub badges: Option<Vec<Badge>>,
 }
