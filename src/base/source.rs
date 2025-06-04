@@ -1,12 +1,18 @@
+use std::pin::Pin;
+
 use crate::{
-    base::{home_section::HomeSection, source_info::SourceInfo},
+    base::{HomeSection, PaginatedResponse, SearchRequest, SourceInfo, SourceSetting},
     error::SourceResult,
     generate::SeriesEntry,
 };
 
 pub struct SourceInstance {
     pub active: bool,
-    pub home_page: fn() -> SourceResult<Vec<HomeSection>>,
-    pub search: fn(query: String, filters: Vec<String>) -> SourceResult<Vec<SeriesEntry>>,
+    pub settings: Vec<SourceSetting>,
+    pub home_page: fn() -> Pin<Box<dyn Future<Output = SourceResult<Vec<HomeSection>>>>>,
+    pub search: fn(
+        SearchRequest,
+    )
+        -> Pin<Box<dyn Future<Output = SourceResult<PaginatedResponse<SeriesEntry>>>>>,
     pub metadata: SourceInfo,
 }

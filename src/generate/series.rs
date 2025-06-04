@@ -1,5 +1,8 @@
+use serde::{Deserialize, Serialize};
+
 use crate::base::LanguageKey;
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SeriesEntry {
     pub source_id: String,
     pub series_id: String,
@@ -7,6 +10,7 @@ pub struct SeriesEntry {
     pub cover_url: String,
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Series {
     // Unique identifier for the manga
     pub source_id: String,
@@ -33,6 +37,7 @@ pub struct Series {
     pub number_chapters: u64,
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum Status {
     Ongoing,
     Completed,

@@ -1,5 +1,8 @@
+use serde::{Deserialize, Serialize};
+
 use crate::generate::SeriesEntry;
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub enum HomeSectionType {
     SingleRowNormal,
     SingleRowLarge,
@@ -7,6 +10,7 @@ pub enum HomeSectionType {
     Featured,
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct HomeSection {
     pub id: String,
     pub title: String,

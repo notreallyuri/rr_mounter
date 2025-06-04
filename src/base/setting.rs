@@ -1,10 +1,16 @@
+use crate::base::LanguageKey;
+
 pub enum SettingType {
-    String,
-    StringArray,
-    Boolean,
-    BooleanArray,
-    Number,
-    NumberArray,
-    LanguageKey,
-    LanguageKeyArray,
+    String(String),
+    Boolean(bool),
+    Number(f64),
+    LanguageKey(LanguageKey),
+}
+
+pub struct SourceSetting {
+    pub key: String,
+    pub name: String,
+    pub description: String,
+    pub default_type: SettingType,
+    pub required: bool,
 }
