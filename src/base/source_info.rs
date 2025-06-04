@@ -1,7 +1,7 @@
 use super::badge::Badge;
+use super::lang::Language;
 use bitflags::bitflags;
 use serde::{Deserialize, Serialize};
-use super::lang::Language;
 
 bitflags! {
     #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -18,7 +18,7 @@ pub enum ContentRating {
     Everyone,
     Mature,
     Adult,
-    Multi
+    Multi,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -44,7 +44,7 @@ pub struct SourceInfo {
 
     // Optional fields
     // Metadata about the extension, which is rendered in the extension details page
-    pub intents: Option<SourceIntents>,
+    pub intents: Option<Vec<SourceIntents>>,
     pub language: Language,
     pub badges: Option<Vec<Badge>>,
 }
