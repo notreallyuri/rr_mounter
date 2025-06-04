@@ -3,7 +3,7 @@ use std::pin::Pin;
 use crate::{
     base::{HomeSection, PaginatedResponse, SearchRequest, SourceInfo, SourceSetting},
     error::SourceResult,
-    generate::SeriesEntry,
+    generate::{Series, SeriesEntry},
 };
 
 pub struct SourceInstance {
@@ -14,5 +14,10 @@ pub struct SourceInstance {
         SearchRequest,
     )
         -> Pin<Box<dyn Future<Output = SourceResult<PaginatedResponse<SeriesEntry>>>>>,
+    pub series: fn(id: String) -> Pin<Box<dyn Future<Output = SourceResult<Series>>>>,
+    pub chapter: fn(
+        series_id: Option<String>,
+        chapter_id: String,
+    ) -> Pin<Box<dyn Future<Output = SourceResult<Vec<String>>>>>,
     pub metadata: SourceInfo,
 }
