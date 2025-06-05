@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use crate::base::LanguageKey;
+use crate::{base::LanguageKey, generate::Chapter};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct SeriesEntry {
@@ -35,6 +35,7 @@ pub struct Series {
     // Statistics about the manga
     pub number_unread: u64,
     pub number_chapters: u64,
+    pub chapters: Vec<Chapter>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
