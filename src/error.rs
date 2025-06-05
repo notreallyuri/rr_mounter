@@ -1,5 +1,6 @@
 use serde::{Deserialize, Serialize};
 use std::time::Duration;
+use std::{future::Future, pin::Pin};
 use thiserror::Error;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -284,6 +285,7 @@ impl SourceError {
 }
 
 pub type SourceResult<T> = Result<T, SourceError>;
+pub type AsyncSourceResult<T> = Pin<Box<dyn Future<Output = Result<T, SourceError>>>>;
 
 pub trait IntoSourceError {
     fn into_source_error(self) -> SourceError;
