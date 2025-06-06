@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use crate::generate::SeriesEntry;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub enum HomeSectionType {
     SingleRowNormal,
     SingleRowLarge,

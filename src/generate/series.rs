@@ -39,6 +39,7 @@ pub struct Series {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub enum Status {
     Ongoing,
     Completed,

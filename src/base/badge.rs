@@ -7,6 +7,7 @@ pub struct Badge {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
 pub enum BadgeColor {
     Default,
     Success,

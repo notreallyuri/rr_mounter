@@ -4,6 +4,7 @@ use std::{future::Future, pin::Pin};
 use thiserror::Error;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub enum ParseContentType {
     SearchResults,
     SeriesMetadata,
@@ -15,6 +16,7 @@ pub enum ParseContentType {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub enum BlockType {
     Geographic,
     AgeRestriction,
@@ -24,6 +26,7 @@ pub enum BlockType {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub enum ErrorSeverity {
     Info,
     Warning,
